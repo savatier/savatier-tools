@@ -37,8 +37,14 @@ DEPEND="
 	${RDEPEND}
 "
 
+
+S="${S}/src/"
+
 src_configure() {
 	local CMAKE_BUILD_TYPE
+	local CMAKE_USE_DIR
+	local BUILD_DIR
+
 	if use debug; then
 		CMAKE_BUILD_TYPE="Debug"
 	else
@@ -47,5 +53,4 @@ src_configure() {
 
 	cmake_src_configure
 }
-
 
