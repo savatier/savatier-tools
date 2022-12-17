@@ -39,3 +39,5 @@ if [ ! -e /var/lib/gntmnt/*.gntmnt ]; then
 else
         echo "Other shells chrooted, NOT unmounting filesystems..."
 fi 
+
+export PS1="(chroot) $PS1" 
