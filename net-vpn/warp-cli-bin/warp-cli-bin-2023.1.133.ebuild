@@ -23,6 +23,7 @@ RDEPEND=""
 
 DEPEND="${RDEPEND}"
 #DEPEND="${RDEPEND} sys-libs/glibc sys-apps/dbus app-arch/lz4 app-arch/zstd app-arch/lzma app-arch/xz-utils net-firewall/nftables dev-libs/libgpg-error"
+DEPEND="${RDEPEND} sys-apps/dbus"
 
 S="${WORKDIR}"
 
