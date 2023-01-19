@@ -2,7 +2,7 @@
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
-inherit unpacker xdg-utils
+inherit unpacker xdg-utils systemd
 
 DESCRIPTION="Cloudflare warp-cli binary distribution"
 HOMEPAGE="https://developers.cloudflare.com/warp-client"
@@ -44,10 +44,12 @@ src_install() {
 	# Systemd service
 	insinto /lib/systemd/system
 	doins ${WORKDIR}/lib/systemd/system/*
+	systemd_dounit ${WORKDIR}/lib/systemd/system/warp-svc.service
 
 	# User systemd service
 	insinto /usr/lib/systemd/user
 	doins ${WORKDIR}/usr/lib/systemd/user/*
+	systemd_douserunit ${WORKDIR}/usr/lib/systemd/user/warp-taskbar.service
 
 	# Taskbar desktop app
 	insinto /usr/share/applications
