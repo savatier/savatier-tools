@@ -2,7 +2,7 @@
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
-inherit unpacker
+inherit unpacker xdg-utils
 
 DESCRIPTION="Cloudflare warp-cli binary distribution"
 HOMEPAGE="https://developers.cloudflare.com/warp-client"
@@ -30,6 +30,7 @@ S="${WORKDIR}"
 src_unpack() {
 	unpack_deb ${A}
 	cd "${WORKDIR}/usr/share/doc/cloudflare-warp" && unpack ./changelog.Debian.gz && rm -f ./changelog.Debian.gz
+	cd "${WORKDIR}/usr/share/doc/cloudflare-warp" && unpack ./changelog.gz && rm -f ./changelog.gz
 }
 
 src_install() {
@@ -58,4 +59,12 @@ src_install() {
 
 	# Docs
 	dodoc -r ${WORKDIR}/usr/share/doc/cloudflare-warp/*
+}
+
+pkg_postinst() {
+	xdg_icon_cache_update
+}
+
+pkg_postrm() {
+	xdg_icon_cache_update
 }
