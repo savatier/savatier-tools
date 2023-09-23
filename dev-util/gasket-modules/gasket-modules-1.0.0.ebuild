@@ -3,7 +3,7 @@
 
 EAPI=8
 
-inherit linux-mod-r1 udev
+inherit linux-mod-r1
 
 DESCRIPTION="Coral Gasket Driver"
 HOMEPAGE="https://github.com/google/gasket-driver"
@@ -11,7 +11,7 @@ HOMEPAGE="https://github.com/google/gasket-driver"
 MY_COMMIT="97aeba584efd18983850c36dcf7384b0185284b3"
 
 SRC_URI="https://github.com/google/gasket-driver/archive/${MY_COMMIT}.tar.gz -> ${P}-${MY_COMMIT}.tar.gz"
-S="${WORKDIR}/gasket-driver-${MY_COMMIT}"
+S="${WORKDIR}/gasket-driver-${MY_COMMIT}/src"
 
 LICENSE="GPL-3"
 SLOT="0"
@@ -26,14 +26,4 @@ src_compile() {
 src_install() {
 	linux-mod-r1_src_install
 	insinto /usr/lib/modules-load.d/
-}
-
-pkg_postinst() {
-	linux-mod_pkg_postinst
-	udev_reload
-}
-
-pkg_postrm() {
-	linux-mod_pkg_postrm
-	udev_reload
 }
