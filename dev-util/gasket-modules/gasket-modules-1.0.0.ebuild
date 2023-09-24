@@ -10,6 +10,8 @@ HOMEPAGE="https://github.com/google/gasket-driver"
 
 MY_COMMIT="97aeba584efd18983850c36dcf7384b0185284b3"
 
+MODULES_KERNEL_MAX=6.4
+
 SRC_URI="https://github.com/google/gasket-driver/archive/${MY_COMMIT}.tar.gz -> ${P}-${MY_COMMIT}.tar.gz"
 S="${WORKDIR}/gasket-driver-${MY_COMMIT}/src"
 
@@ -19,7 +21,7 @@ KEYWORDS="amd64"
 
 src_compile() {
 	local modlist=( {gasket,apex}=misc )
-	local modargs=( KERN_DIR="${KV_OUT_DIR}" KERN_VER="${KV_FULL}" )
+	local modargs=( KERN_DIR="${KV_FULL}/build" KERN_VER="${KV_FULL}" )
 	linux-mod-r1_src_compile
 }
 
