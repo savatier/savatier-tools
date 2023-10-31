@@ -23,7 +23,7 @@ RDEPEND=""
 
 DEPEND="${RDEPEND}"
 #DEPEND="${RDEPEND} sys-libs/glibc sys-apps/dbus app-arch/lz4 app-arch/zstd app-arch/lzma app-arch/xz-utils net-firewall/nftables dev-libs/libgpg-error"
-DEPEND="${RDEPEND} sys-apps/dbus"
+DEPEND="${RDEPEND} sys-libs/glibc sys-apps/dbus net-firewall/nftables app-crypt/gnupg dev-util/desktop-file-utils sys-libs/libcap"
 
 S="${WORKDIR}"
 
@@ -31,6 +31,9 @@ src_unpack() {
 	unpack_deb ${A}
 	cd "${WORKDIR}/usr/share/doc/cloudflare-warp" && unpack ./changelog.Debian.gz && rm -f ./changelog.Debian.gz
 	cd "${WORKDIR}/usr/share/doc/cloudflare-warp" && unpack ./changelog.gz && rm -f ./changelog.gz
+
+	#TODO check md5sums
+	die
 }
 
 src_install() {
@@ -44,12 +47,12 @@ src_install() {
 	# Systemd service
 	insinto /lib/systemd/system
 	doins ${WORKDIR}/lib/systemd/system/*
-	systemd_dounit ${WORKDIR}/lib/systemd/system/warp-svc.service
+	systemd_dounit warp-svc.service
 
 	# User systemd service
 	insinto /usr/lib/systemd/user
 	doins ${WORKDIR}/usr/lib/systemd/user/*
-	systemd_douserunit ${WORKDIR}/usr/lib/systemd/user/warp-taskbar.service
+	systemd_douserunit warp-taskbar.service
 
 	# Taskbar desktop app
 	insinto /usr/share/applications

@@ -19,6 +19,14 @@ LICENSE="GPL-3"
 SLOT="0"
 KEYWORDS="amd64"
 
+#RDEPEND="virtual/udev"
+#DEPEND="${RDEPEND}"
+
+#src_configure() {
+#	default
+#	econf --with-rulesdir="$(get_udevdir)"/rules.d
+#}
+
 src_compile() {
 	local modlist=( {gasket,apex}=misc )
 	local modargs=( KERN_DIR="${KV_FULL}/build" KERN_VER="${KV_FULL}" )
@@ -27,5 +35,14 @@ src_compile() {
 
 src_install() {
 	linux-mod-r1_src_install
-	insinto /usr/lib/modules-load.d/
+#	insinto /usr/lib/modules-load.d/
+#	udev_newrules ${FILESDIR}/debian/gasket-dkms.udev 90-gasket
 }
+
+#pkg_postinst() {
+#	udev_reload
+#}
+
+#pkg_postrm() {
+#	udev_reload
+#}
