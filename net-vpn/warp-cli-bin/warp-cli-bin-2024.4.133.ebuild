@@ -67,7 +67,8 @@ src_install() {
 	doins ${WORKDIR}/usr/share/icons/hicolor/scalable/apps/*
 
 	# Images
-	# TOTO ${WORKDIR}/usr/share/warp/images/*
+	insinto /usr/share/warp/images
+	doins ${WORKDIR}/usr/share/warp/images/*
 
 	# Docs
 	dodoc -r ${WORKDIR}/usr/share/doc/cloudflare-warp/*
