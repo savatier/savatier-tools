@@ -8,8 +8,6 @@ PYTHON_COMPAT=( python3_{9..13} )
 DISTUTILS_USE_PEP517=setuptools
 inherit distutils-r1
 
-distutils_enable_pep517
-
 DESCRIPTION="ProtonVPN NetworkManager library"
 HOMEPAGE="https://protonvpn.com https://github.com/ProtonVPN/protonvpn-nm-lib"
 SRC_URI="https://github.com/ProtonVPN/${PN}/archive/refs/tags/${PV}.tar.gz -> ${P}.tar.gz"

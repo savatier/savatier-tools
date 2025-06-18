@@ -8,8 +8,6 @@ PYTHON_COMPAT=( python3_{9..13} )
 
 inherit distutils-r1
 
-distutils_enable_pep517
-
 DESCRIPTION="Proton account login backend"
 HOMEPAGE="https://protonvpn.com https://protonmail.com https://github.com/ProtonMail/proton-python-client"
 SRC_URI="https://github.com/ProtonMail/proton-python-client/archive/refs/tags/${PV}.tar.gz -> ${P}.tar.gz"

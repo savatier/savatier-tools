@@ -8,8 +8,6 @@ PYTHON_COMPAT=( python3_9 python3_10 python3_11 python3_12 python3_13 )
 
 inherit distutils-r1
 
-distutils_enable_pep517
-
 DESCRIPTION="Easy OpenAPI specs and Swagger UI for your Flask API"
 HOMEPAGE="https://github.com/flasgger/flasgger"
 SRC_URI="mirror://pypi/${PN:0:1}/${PN}/${P}.tar.gz"
