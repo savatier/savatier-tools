@@ -3,9 +3,9 @@
 
 EAPI=8
 
-PEP517_BUILD_BACKEND="setuptools.build_meta"
 PYTHON_COMPAT=( python3_{9..13} )
 
+DISTUTILS_USE_PEP517=setuptools
 inherit distutils-r1
 
 distutils_enable_pep517
