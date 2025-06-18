@@ -3,9 +3,12 @@
 
 EAPI=8
 
-PYTHON_COMPAT=( python3_{9..13} )
+PEP517_BUILD_BACKEND="setuptools.build_meta"
+PYTHON_COMPAT=( python3_9 python3_10 python3_11 python3_12 python3_13 )
 
 inherit distutils-r1
+
+distutils_enable_pep517
 
 DESCRIPTION="Easy OpenAPI specs and Swagger UI for your Flask API"
 HOMEPAGE="https://github.com/flasgger/flasgger"
