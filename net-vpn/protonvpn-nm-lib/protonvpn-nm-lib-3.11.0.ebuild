@@ -5,8 +5,6 @@ EAPI=8
 
 PYTHON_COMPAT=( python3_{9..13} )
 
-DISTUTILS_USE_SETUPTOOLS=bdepend
-
 inherit distutils-r1
 
 DESCRIPTION="ProtonVPN NetworkManager library"
