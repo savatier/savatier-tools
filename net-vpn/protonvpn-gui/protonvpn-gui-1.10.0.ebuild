@@ -3,11 +3,12 @@
 
 EAPI=8
 
+PEP517_BUILD_BACKEND="setuptools.build_meta"
 PYTHON_COMPAT=( python3_{9..13} )
 
-DISTUTILS_USE_SETUPTOOLS=rdepend
-
 inherit distutils-r1 desktop
+
+distutils_enable_pep517
 
 DESCRIPTION="Official ProtonVPN Linux app"
 HOMEPAGE="https://protonvpn.com https://github.com/ProtonVPN/linux-app"

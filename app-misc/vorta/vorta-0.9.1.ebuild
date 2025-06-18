@@ -1,8 +1,10 @@
 EAPI=8
 
-DISTUTILS_USE_PEP517=setuptools
+PEP517_BUILD_BACKEND="setuptools.build_meta"
 PYTHON_COMPAT=( python3_{8..13} pypy3 )
 inherit distutils-r1
+
+distutils_enable_pep517
 
 DESCRIPTION=" Desktop Backup Client for Borg Backup"
 HOMEPAGE="https://github.com/borgbase/vorta"

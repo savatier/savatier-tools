@@ -3,11 +3,12 @@
 
 EAPI=8
 
+PEP517_BUILD_BACKEND="setuptools.build_meta"
 PYTHON_COMPAT=( python3_{9..13} )
 
-DISTUTILS_USE_SETUPTOOLS=bdepend
-
 inherit distutils-r1
+
+distutils_enable_pep517
 
 DESCRIPTION="Proton account login backend"
 HOMEPAGE="https://protonvpn.com https://protonmail.com https://github.com/ProtonMail/proton-python-client"
@@ -30,5 +31,3 @@ DEPEND="${RDEPEND}"
 S="${WORKDIR}/proton-python-client-${PV}"
 
 DOCS=( README.md )
-
-distutils_enable_tests unittest
